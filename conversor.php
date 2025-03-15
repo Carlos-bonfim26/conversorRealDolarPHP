@@ -15,8 +15,16 @@
         <h1>Valores convertidos</h1>
         <?php
         $real = $_POST["real"];
-       $url = 'https://economia.awesomeapi.com.br/json/daily/USD-BRL/?start_date=20180901&end_date=20250314';
 
+        $inicio = date("Ymd", strtotime("-7 days"));
+$fim = date("Ymd");
+
+$url = 'https://economia.awesomeapi.com.br/json/daily/USD-BRL/?start_date=' . $inicio . '&end_date=' . $fim;
+
+
+
+
+     
        $dados = json_decode(file_get_contents($url), true);
 
        $cotacao = ($dados[0]["high"] + $dados[0]["low"]) / 2;
