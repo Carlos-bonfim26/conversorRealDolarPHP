@@ -28,12 +28,11 @@ $url = 'https://economia.awesomeapi.com.br/json/daily/USD-BRL/?start_date=' . $i
        $dados = json_decode(file_get_contents($url), true);
 
        $cotacao = ($dados[0]["high"] + $dados[0]["low"]) / 2;
-       $diaCotacao = $dados[0]["create_date"];
       
-       $dolar = $real / $cotacao;
+       $dolar =  floatval($real)/ $cotacao;
         echo "<p class='cotacao'> <strong>R$$real</strong> convertido para dolár é igual a <strong>$$dolar</strong></p>";
         
-        echo "<p>utilizando a cotação do dia $diaCotacao, segundo a Awesome API</p>";
+        echo "<p>utilizando a cotação segundo a Awesome API</p>";
         echo "<span><br/> <a href = 'index.html'> volte aqui</a></span>";
 
 
